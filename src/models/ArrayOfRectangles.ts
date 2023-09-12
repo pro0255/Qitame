@@ -27,4 +27,8 @@ export class ArrayOfRectangles {
   public update = () => {
     this.rectangles?.push(new Rectangle(10));
   };
+
+  get contents() {
+    return this.rectangles.map((rectangle) => rectangle.content);
+  }
 }

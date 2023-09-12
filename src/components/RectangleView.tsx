@@ -7,7 +7,12 @@ type Props = {
 
 const _RectangleView = ({ rectangleModel }: Props) => {
   console.log(rectangleModel);
-  return <div>This is rectangle with content = {rectangleModel.content}</div>;
+  return (
+    <div>
+      {rectangleModel.position.x};{rectangleModel.position.y};{rectangleModel.position.height};
+      {rectangleModel.position.width}
+    </div>
+  );
 };
 
 export const RectangleView = observer(_RectangleView);

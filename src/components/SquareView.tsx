@@ -1,7 +1,7 @@
 import { ArrayOfRectangles } from '../models/ArrayOfRectangles';
 import { observer } from 'mobx-react';
 import { RectangleView } from './RectangleView';
-import { useState } from 'react';
+import { useMemo } from 'react';
 import { Square } from '../models/Square';
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 };
 
 const _SquareView = ({ arrayOfRectangles }: Props) => {
-  const [squareModel] = useState(new Square(arrayOfRectangles));
+  const squareModel = useMemo(() => new Square(arrayOfRectangles), [arrayOfRectangles]);
 
   return (
     <div

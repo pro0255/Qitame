@@ -1,21 +1,29 @@
-import { Rectangle } from './Rectangle';
 import { sum } from '../utils/sum';
 import { makeAutoObservable } from 'mobx';
 import { ArrayOfRectangles } from './ArrayOfRectangles';
+import { FitAlgorithm } from './FitAlgorithm';
 
 export class Square {
   public readonly width: number;
   public readonly height: number;
+  private readonly arrayOfRectangles: ArrayOfRectangles;
 
-  constructor(readonly arrayOfRectangles: ArrayOfRectangles) {
+  constructor(arrayOfRectangles: ArrayOfRectangles) {
     makeAutoObservable(this);
 
-    const edge = this.calculateWidth(arrayOfRectangles.rectangles);
+    const edge = sum(arrayOfRectangles.contents);
     this.width = edge;
     this.height = edge;
+    this.arrayOfRectangles = arrayOfRectangles;
+
+    this.fitRectangles();
   }
 
-  private calculateWidth = (rectangles: Rectangle[]) => {
-    return sum(rectangles.map((rectangle) => rectangle.content));
+  private fitRectangles = () => {
+    const positions = FitAlgorithm.fit(this.width, this.arrayOfRectangles.contents);
+    positions.forEach((position, index) => {
+      const rectangle = this.arrayOfRectangles.rectangles[index];
+      rectangle.updatePosition(position);
+    });
   };
 }
