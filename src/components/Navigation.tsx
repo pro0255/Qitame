@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { RouteType } from '../router/routes';
+import { createLinkFactory, RouteType } from '../router/routes';
+import { MARTIN_EXAMPLE } from '../instances/MartinExample';
 
 export const Navigation = () => {
   return (
@@ -9,10 +10,16 @@ export const Navigation = () => {
           <Link to={RouteType.Home}>Home</Link>
         </li>
         <li>
-          <Link to={RouteType.SolutionForm}>Solution Form</Link>
+          <Link to={RouteType.SolutionExamples}>Solution Form</Link>
         </li>
         <li>
-          <Link to={RouteType.SolutionView}>Solution View</Link>
+          <Link
+            to={createLinkFactory(RouteType.SolutionView)({
+              numbers: MARTIN_EXAMPLE,
+            })}
+          >
+            Solution View
+          </Link>
         </li>
         <li>
           <Link to={RouteType.About}>About</Link>
