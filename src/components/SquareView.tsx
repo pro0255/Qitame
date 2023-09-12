@@ -12,8 +12,13 @@ const _SquareView = ({ arrayOfRectangles }: Props) => {
   const [squareModel] = useState(new Square(arrayOfRectangles));
 
   return (
-    <div>
-      This is Area width = {squareModel.width} and height = {squareModel.height}
+    <div
+      style={{
+        width: `${squareModel.width}px`,
+        height: `${squareModel.height}px`,
+      }}
+      className={`border border-gray-600 shadow-xl`}
+    >
       {arrayOfRectangles.rectangles.map((rectangle) => (
         <RectangleView key={rectangle.key} rectangleModel={rectangle} />
       ))}
