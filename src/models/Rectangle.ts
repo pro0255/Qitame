@@ -1,4 +1,4 @@
-import { Position } from '../types/position';
+import { Position } from '../types/Position';
 import { makeAutoObservable } from 'mobx';
 import { NOT_IMPLEMENTED } from '../constants/NOT_IMPLEMENTED';
 

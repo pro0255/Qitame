@@ -1,4 +1,4 @@
-import { Position } from '../types/position';
+import { Position } from '../types/Position';
 
 export class FitAlgorithm {
   public static fit = (squareEdge: number, contents: number[]): Position[] => {
