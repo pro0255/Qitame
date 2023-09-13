@@ -1,6 +1,7 @@
 import { Position } from '../types/Position';
 import { makeAutoObservable } from 'mobx';
 import { NOT_IMPLEMENTED } from '../constants/NOT_IMPLEMENTED';
+import { getRandomColor } from '../utils/sum';
 
 export class Rectangle {
   public readonly key: number;
@@ -26,6 +27,6 @@ export class Rectangle {
   }
 
   get color(): string {
-    return 'red';
+    return getRandomColor();
   }
 }
