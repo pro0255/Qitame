@@ -1,6 +1,7 @@
 import { NOT_IMPLEMENTED } from '../../constants/NOT_IMPLEMENTED';
 import { makeAutoObservable } from 'mobx';
 import { Rectangle } from '../Rectangle/Rectangle';
+import { createLinkFactory, RouteType } from '../../router/routes';
 
 export class ArrayOfRectangles {
   public readonly rectangles: Rectangle[] = [];
@@ -30,6 +31,7 @@ export class ArrayOfRectangles {
 
   public split = (rectangle: Rectangle) => {
     this.updateRectangles(rectangle);
+    this.updateURL();
   };
 
   private updateRectangles = (rectangle: Rectangle) => {
@@ -43,5 +45,15 @@ export class ArrayOfRectangles {
     const { roundedOneThird, rest } = rectangle.split();
 
     this.rectangles.splice(index, 1, roundedOneThird, rest);
+  };
+
+  public updateURL = () => {
+    const url = new URL(location.href);
+
+    url.pathname = createLinkFactory(RouteType.SolutionView)({
+      numbers: this.contents,
+    });
+
+    history.pushState({}, '', url);
   };
 }
