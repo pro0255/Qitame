@@ -1,6 +1,6 @@
 import { ArrayOfRectangles } from '../models/ArrayOfRectangles/ArrayOfRectangles';
 import { observer } from 'mobx-react';
-import { RectangleView } from './RectangleView';
+import { RectangleView } from './RectangleView/RectangleView';
 import { useMemo } from 'react';
 import { Square } from '../models/Square/Square';
 import { toPx } from '../config/config';

@@ -1,6 +1,9 @@
 import { observer } from 'mobx-react';
-import { Rectangle } from '../models/Rectangle/Rectangle';
-import { useCallback } from 'react';
+import { Rectangle } from '../../models/Rectangle/Rectangle';
+import { MouseEvent, useCallback } from 'react';
+import { RectangleHTMLElement } from './types';
+import { isLeftClick, isRightClick } from '../../utils/click';
+import { NOT_IMPLEMENTED } from '../../constants/NOT_IMPLEMENTED';
 
 type Props = {
   rectangleModel: Rectangle;
@@ -8,13 +11,24 @@ type Props = {
 };
 
 const _RectangleView = ({ rectangleModel, onLeftClick }: Props) => {
-  const split = useCallback(() => {
-    onLeftClick(rectangleModel);
-  }, [onLeftClick, rectangleModel]);
+  const split = useCallback(
+    (event: MouseEvent<RectangleHTMLElement>) => {
+      if (isLeftClick(event)) {
+        onLeftClick(rectangleModel);
+      }
+
+      if (isRightClick(event)) {
+        event.preventDefault();
+        console.log(NOT_IMPLEMENTED);
+      }
+    },
+    [onLeftClick, rectangleModel],
+  );
 
   return (
     <div
       onClick={split}
+      onContextMenu={split}
       style={{
         width: `${rectangleModel.position.width}px`,
         height: `${rectangleModel.position.height}px`,
