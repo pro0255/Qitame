@@ -14,10 +14,6 @@ export class Rectangle {
     this.key = Math.random() * content;
   }
 
-  public updatePosition = (position: Position) => {
-    this._position = position;
-  };
-
   get position(): Position {
     if (this._position === null) {
       throw NOT_IMPLEMENTED;
@@ -29,4 +25,18 @@ export class Rectangle {
   get color(): string {
     return getRandomColor();
   }
+
+  public updatePosition = (position: Position) => {
+    this._position = position;
+  };
+
+  public split = () => {
+    const roundedOneThird = Math.floor(this.content * (1 / 3));
+    const rest = this.content - roundedOneThird;
+
+    return {
+      roundedOneThird: new Rectangle(roundedOneThird),
+      rest: new Rectangle(rest),
+    };
+  };
 }
