@@ -16,9 +16,6 @@ const _SolutionViewPage = () => {
   return (
     <CenterLayout>
       <SquareView arrayOfRectangles={model} />
-
-      <button onClick={model.update}>lol</button>
-      <button onClick={() => console.log(model)}>log</button>
     </CenterLayout>
   );
 };
