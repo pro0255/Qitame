@@ -6,9 +6,17 @@ type Props = {
 };
 
 const _RectangleView = ({ rectangleModel }: Props) => {
-  console.log(rectangleModel);
   return (
-    <div>
+    <div
+      style={{
+        width: `${rectangleModel.position.width}px`,
+        height: `${rectangleModel.position.height}px`,
+        left: `${rectangleModel.position.x}px`,
+        top: `${rectangleModel.position.y}px`,
+        backgroundColor: rectangleModel.color,
+      }}
+      className={'absolute'}
+    >
       {rectangleModel.position.x};{rectangleModel.position.y};{rectangleModel.position.height};
       {rectangleModel.position.width}
     </div>

@@ -18,7 +18,7 @@ const _SquareView = ({ arrayOfRectangles }: Props) => {
         width: `${toPx(squareModel.width)}px`,
         height: `${toPx(squareModel.height)}px`,
       }}
-      className={`border border-gray-600 shadow-xl`}
+      className={`border border-gray-600 shadow-xl relative`}
     >
       {arrayOfRectangles.rectangles.map((rectangle) => (
         <RectangleView key={rectangle.key} rectangleModel={rectangle} />

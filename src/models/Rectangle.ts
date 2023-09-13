@@ -24,4 +24,8 @@ export class Rectangle {
 
     return this._position;
   }
+
+  get color(): string {
+    return 'red';
+  }
 }
