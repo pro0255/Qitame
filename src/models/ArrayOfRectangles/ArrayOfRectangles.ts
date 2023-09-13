@@ -1,6 +1,6 @@
-import { NOT_IMPLEMENTED } from '../constants/NOT_IMPLEMENTED';
+import { NOT_IMPLEMENTED } from '../../constants/NOT_IMPLEMENTED';
 import { makeAutoObservable } from 'mobx';
-import { Rectangle } from './Rectangle';
+import { Rectangle } from '../Rectangle/Rectangle';
 
 export class ArrayOfRectangles {
   public readonly rectangles: Rectangle[] = [];

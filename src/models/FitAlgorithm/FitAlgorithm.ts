@@ -1,4 +1,4 @@
-import { RectangleEdges } from '../types/Position';
+import { RectangleEdges } from '../../types/Position';
 
 // Represents a space where rectangles are drawn
 export type FreeSpace = {

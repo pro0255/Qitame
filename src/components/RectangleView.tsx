@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react';
-import { Rectangle } from '../models/Rectangle';
+import { Rectangle } from '../models/Rectangle/Rectangle';
 
 type Props = {
   rectangleModel: Rectangle;

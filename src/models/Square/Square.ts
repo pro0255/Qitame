@@ -1,9 +1,9 @@
-import { sum } from '../utils/sum';
+import { sum } from '../../utils/sum';
 import { makeAutoObservable } from 'mobx';
-import { ArrayOfRectangles } from './ArrayOfRectangles';
-import { FitAlgorithm, FreeSpace, RectangleType } from './FitAlgorithm';
-import { RectangleEdges } from '../types/Position';
-import { objectToPx } from '../config/config';
+import { ArrayOfRectangles } from '../ArrayOfRectangles/ArrayOfRectangles';
+import { FitAlgorithm, FreeSpace, RectangleType } from '../FitAlgorithm/FitAlgorithm';
+import { RectangleEdges } from '../../types/Position';
+import { objectToPx } from '../../config/config';
 
 export class Square {
   public readonly width: number;

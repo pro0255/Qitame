@@ -1,8 +1,8 @@
-import { ArrayOfRectangles } from '../models/ArrayOfRectangles';
+import { ArrayOfRectangles } from '../models/ArrayOfRectangles/ArrayOfRectangles';
 import { observer } from 'mobx-react';
 import { RectangleView } from './RectangleView';
 import { useMemo } from 'react';
-import { Square } from '../models/Square';
+import { Square } from '../models/Square/Square';
 import { toPx } from '../config/config';
 
 type Props = {

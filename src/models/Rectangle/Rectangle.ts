@@ -1,7 +1,7 @@
-import { Position } from '../types/Position';
+import { Position } from '../../types/Position';
 import { makeAutoObservable } from 'mobx';
-import { NOT_IMPLEMENTED } from '../constants/NOT_IMPLEMENTED';
-import { getRandomColor } from '../utils/sum';
+import { NOT_IMPLEMENTED } from '../../constants/NOT_IMPLEMENTED';
+import { getRandomColor } from '../../utils/sum';
 
 export class Rectangle {
   public readonly key: number;

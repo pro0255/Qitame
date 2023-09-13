@@ -1,6 +1,6 @@
 import { CenterLayout } from '../layouts/CenterLayout';
 import { useParams } from 'react-router-dom';
-import { ArrayOfRectangles } from '../models/ArrayOfRectangles';
+import { ArrayOfRectangles } from '../models/ArrayOfRectangles/ArrayOfRectangles';
 import { observer } from 'mobx-react';
 import { useState } from 'react';
 import { SquareView } from '../components/SquareView';
