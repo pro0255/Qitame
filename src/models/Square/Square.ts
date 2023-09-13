@@ -1,5 +1,5 @@
 import { sum } from '../../utils/sum';
-import { makeAutoObservable } from 'mobx';
+import { autorun, makeAutoObservable } from 'mobx';
 import { ArrayOfRectangles } from '../ArrayOfRectangles/ArrayOfRectangles';
 import { FitAlgorithm, FreeSpace, RectangleType } from '../FitAlgorithm/FitAlgorithm';
 import { RectangleEdges } from '../../types/Position';
@@ -8,7 +8,7 @@ import { objectToPx } from '../../config/config';
 export class Square {
   public readonly width: number;
   public readonly height: number;
-  private readonly arrayOfRectangles: ArrayOfRectangles;
+  public readonly arrayOfRectangles: ArrayOfRectangles;
 
   constructor(arrayOfRectangles: ArrayOfRectangles) {
     makeAutoObservable(this);
@@ -19,9 +19,13 @@ export class Square {
     this.arrayOfRectangles = arrayOfRectangles;
 
     this.fitRectangles();
+
+    autorun(() => {
+      this.fitRectangles();
+    });
   }
 
-  private fitRectangles = () => {
+  public fitRectangles = () => {
     const rectangleEdges = FitAlgorithm.fit(this.width, this.arrayOfRectangles.contents);
 
     let X_Y: FreeSpace = {

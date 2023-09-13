@@ -24,11 +24,24 @@ export class ArrayOfRectangles {
     }
   };
 
-  public update = () => {
-    this.rectangles?.push(new Rectangle(10));
-  };
-
   get contents() {
     return this.rectangles.map((rectangle) => rectangle.content);
   }
+
+  public split = (rectangle: Rectangle) => {
+    this.updateRectangles(rectangle);
+  };
+
+  private updateRectangles = (rectangle: Rectangle) => {
+    // Counting on reference comparison (also kind of safes resources because i work always with same instance)
+    const index = this.rectangles.indexOf(rectangle);
+
+    if (index === -1) {
+      throw NOT_IMPLEMENTED;
+    }
+
+    const { roundedOneThird, rest } = rectangle.split();
+
+    this.rectangles.splice(index, 1, roundedOneThird, rest);
+  };
 }

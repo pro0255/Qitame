@@ -21,7 +21,11 @@ const _SquareView = ({ arrayOfRectangles }: Props) => {
       className={`border border-gray-600 shadow-xl relative`}
     >
       {arrayOfRectangles.rectangles.map((rectangle) => (
-        <RectangleView key={rectangle.key} rectangleModel={rectangle} />
+        <RectangleView
+          onLeftClick={squareModel.arrayOfRectangles.split}
+          key={rectangle.key}
+          rectangleModel={rectangle}
+        />
       ))}
     </div>
   );
