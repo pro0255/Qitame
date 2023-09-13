@@ -3,6 +3,7 @@ import { makeAutoObservable } from 'mobx';
 import { ArrayOfRectangles } from './ArrayOfRectangles';
 import { FitAlgorithm, FreeSpace, RectangleType } from './FitAlgorithm';
 import { RectangleEdges } from '../types/Position';
+import { objectToPx } from '../config/config';
 
 export class Square {
   public readonly width: number;
@@ -32,9 +33,7 @@ export class Square {
       const rectangle = this.arrayOfRectangles.rectangles[index];
       const rectangleType = FitAlgorithm.indexToRectangleType(index);
 
-      rectangle.updateEdges(edges);
-
-      const rectanglePosition = this.createPosition(edges, rectangleType, X_Y);
+      const rectanglePosition = this.createPxPosition(edges, rectangleType, X_Y);
 
       rectangle.updatePosition(rectanglePosition);
 
@@ -52,7 +51,7 @@ export class Square {
     });
   };
 
-  private createPosition = (
+  private createPxPosition = (
     currentRectangleEdges: RectangleEdges,
     rectangleType: RectangleType,
     { x, y }: FreeSpace,
@@ -60,19 +59,19 @@ export class Square {
     // a and b are assigned differently
 
     if (rectangleType === RectangleType.Vertical) {
-      return {
+      return objectToPx({
         x,
         y,
         height: currentRectangleEdges.a,
         width: currentRectangleEdges.b,
-      };
+      });
     } else {
-      return {
+      return objectToPx({
         x,
         y,
         height: currentRectangleEdges.b,
         width: currentRectangleEdges.a,
-      };
+      });
     }
   };
 }
