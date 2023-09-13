@@ -4,3 +4,8 @@ export type Position = {
   width: number;
   height: number;
 };
+
+export type RectangleEdges = {
+  a: number;
+  b: number;
+};

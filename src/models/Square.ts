@@ -1,7 +1,8 @@
 import { sum } from '../utils/sum';
 import { makeAutoObservable } from 'mobx';
 import { ArrayOfRectangles } from './ArrayOfRectangles';
-import { FitAlgorithm } from './FitAlgorithm';
+import { FitAlgorithm, FreeSpace, RectangleType } from './FitAlgorithm';
+import { RectangleEdges } from '../types/Position';
 
 export class Square {
   public readonly width: number;
@@ -20,10 +21,58 @@ export class Square {
   }
 
   private fitRectangles = () => {
-    const positions = FitAlgorithm.fit(this.width, this.arrayOfRectangles.contents);
-    positions.forEach((position, index) => {
+    const rectangleEdges = FitAlgorithm.fit(this.width, this.arrayOfRectangles.contents);
+
+    let X_Y: FreeSpace = {
+      x: 0,
+      y: 0,
+    };
+
+    rectangleEdges.forEach((edges, index) => {
       const rectangle = this.arrayOfRectangles.rectangles[index];
-      rectangle.updatePosition(position);
+      const rectangleType = FitAlgorithm.indexToRectangleType(index);
+
+      rectangle.updateEdges(edges);
+
+      const rectanglePosition = this.createPosition(edges, rectangleType, X_Y);
+
+      rectangle.updatePosition(rectanglePosition);
+
+      if (rectangleType === RectangleType.Vertical) {
+        X_Y = {
+          ...X_Y,
+          x: X_Y.x + edges.b,
+        };
+      } else {
+        X_Y = {
+          ...X_Y,
+          y: X_Y.y + edges.b,
+        };
+      }
     });
+  };
+
+  private createPosition = (
+    currentRectangleEdges: RectangleEdges,
+    rectangleType: RectangleType,
+    { x, y }: FreeSpace,
+  ) => {
+    // a and b are assigned differently
+
+    if (rectangleType === RectangleType.Vertical) {
+      return {
+        x,
+        y,
+        height: currentRectangleEdges.a,
+        width: currentRectangleEdges.b,
+      };
+    } else {
+      return {
+        x,
+        y,
+        height: currentRectangleEdges.b,
+        width: currentRectangleEdges.a,
+      };
+    }
   };
 }
