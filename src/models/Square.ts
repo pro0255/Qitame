@@ -11,7 +11,7 @@ export class Square {
   constructor(arrayOfRectangles: ArrayOfRectangles) {
     makeAutoObservable(this);
 
-    const edge = sum(arrayOfRectangles.contents);
+    const edge = Math.sqrt(sum(arrayOfRectangles.contents));
     this.width = edge;
     this.height = edge;
     this.arrayOfRectangles = arrayOfRectangles;

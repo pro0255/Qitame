@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import { RectangleView } from './RectangleView';
 import { useMemo } from 'react';
 import { Square } from '../models/Square';
+import { toPx } from '../config/config';
 
 type Props = {
   arrayOfRectangles: ArrayOfRectangles;
@@ -14,8 +15,8 @@ const _SquareView = ({ arrayOfRectangles }: Props) => {
   return (
     <div
       style={{
-        width: `${squareModel.width}px`,
-        height: `${squareModel.height}px`,
+        width: `${toPx(squareModel.width)}px`,
+        height: `${toPx(squareModel.height)}px`,
       }}
       className={`border border-gray-600 shadow-xl`}
     >
