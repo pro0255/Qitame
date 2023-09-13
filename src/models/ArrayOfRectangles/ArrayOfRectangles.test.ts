@@ -16,9 +16,6 @@ describe('ArrayOfRectangles', () => {
       expect(arrayOfRectangles.contents).toEqual([33, 67, 45, 21, 60, 24]);
     });
     it('whenever the input is "[100,45,21,60,24]" and it is split, the URL is updated to [33, 67, 45, 21, 60, 24]', () => {
-      // Object.defineProperty(global.window, 'location', {
-      //   value: new URL('https://ematiq.is.great.com/solutionView/[100,45,21,60,24]'),
-      // });
       const arrayOfRectangles = new ArrayOfRectangles('[100,45,21,60,24]');
       const rectangle100 = arrayOfRectangles.rectangles[0];
 
