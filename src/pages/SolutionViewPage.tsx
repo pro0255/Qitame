@@ -11,6 +11,7 @@ export type SolutionViewParams = {
 
 const _SolutionViewPage = () => {
   const { numbers } = useParams<SolutionViewParams>();
+  // Keeps same model which can be easily split and merged together (after refresh it's lost)
   const [model] = useState(new ArrayOfRectangles(numbers));
 
   return (
