@@ -17,8 +17,17 @@ const _RectangleView = ({ rectangleModel }: Props) => {
       }}
       className={'absolute'}
     >
-      {rectangleModel.position.x};{rectangleModel.position.y};{rectangleModel.position.height};
-      {rectangleModel.position.width}
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          textAlign: 'center',
+        }}
+      >
+        {rectangleModel.content}
+      </div>
     </div>
   );
 };
