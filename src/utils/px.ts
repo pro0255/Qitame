@@ -1,5 +1,5 @@
 import { Position } from '../types/Position';
-import { METRIC_TO_PX } from '../config/config';
+import { METRIC_TO_PX } from '../constants/PX';
 
 export const toPx = (n: number) => {
   return n * METRIC_TO_PX;
