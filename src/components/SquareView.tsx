@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 import { RectangleView } from './RectangleView/RectangleView';
 import { useMemo } from 'react';
 import { Square } from '../models/Square/Square';
-import { toPx } from '../config/config';
+import { toPx } from '../utils/px';
 
 type Props = {
   arrayOfRectangles: ArrayOfRectangles;

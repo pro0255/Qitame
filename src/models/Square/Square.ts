@@ -3,7 +3,7 @@ import { autorun, makeAutoObservable } from 'mobx';
 import { ArrayOfRectangles } from '../ArrayOfRectangles/ArrayOfRectangles';
 import { FitAlgorithm, FreeSpace, RectangleType } from '../FitAlgorithm/FitAlgorithm';
 import { RectangleEdges } from '../../types/Position';
-import { objectToPx } from '../../config/config';
+import { objectToPx } from '../../utils/px';
 
 export class Square {
   public readonly width: number;
