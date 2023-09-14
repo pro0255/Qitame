@@ -1,6 +1,6 @@
 import { ExampleProperties } from '../../types';
 import { NumberView } from './NumberView';
-import { numberValidator } from '../../../../models/NumberValidator/numberValidator';
+import { contentsValidator } from '../../../../models/NumberValidator/contentsValidator';
 
 type Props = Pick<ExampleProperties, 'value'>;
 
@@ -11,7 +11,7 @@ export const NumbersView = ({ value }: Props) => {
         return (
           // Key as index is not good. But here is good enough
           <li key={index}>
-            <NumberView number={v} isValid={numberValidator([v])} />
+            <NumberView number={v} isValid={contentsValidator([v])} />
           </li>
         );
       })}

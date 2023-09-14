@@ -2,7 +2,7 @@ import { Examples } from './types';
 import { ExampleView } from './ExampleView';
 import { createLinkFactory, RouteType } from '../../router/routes';
 import { Link } from 'react-router-dom';
-import { numberValidator } from '../../models/NumberValidator/numberValidator';
+import { contentsValidator } from '../../models/NumberValidator/contentsValidator';
 
 type Props = {
   examples: Examples;
@@ -21,11 +21,11 @@ export const ExamplesView = ({ examples }: Props) => {
             key={example.name}
           >
             <Link
-              to={createLinkFactory(RouteType.SolutionView)({
+              to={createLinkFactory(RouteType.Solution)({
                 numbers: example.value,
               })}
             >
-              <ExampleView {...example} isValid={numberValidator(example.value)} />
+              <ExampleView {...example} isValid={contentsValidator(example.value)} />
             </Link>
           </li>
         );

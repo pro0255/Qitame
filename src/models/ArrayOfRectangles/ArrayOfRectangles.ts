@@ -2,7 +2,7 @@ import { NOT_IMPLEMENTED } from '../../constants/NOT_IMPLEMENTED';
 import { makeAutoObservable } from 'mobx';
 import { Child, Rectangle } from '../Rectangle/Rectangle';
 import { createLinkFactory, RouteType } from '../../router/routes';
-import { numberValidator } from '../NumberValidator/numberValidator';
+import { contentsValidator } from '../NumberValidator/contentsValidator';
 import { InvalidNumber } from '../NumberValidator/InvalidNumber';
 
 enum ArrayPosition {
@@ -12,11 +12,11 @@ enum ArrayPosition {
 
 export class ArrayOfRectangles {
   public rectangles: Rectangle[] = [];
-  public readonly initialNumbers: number[];
+  public readonly initialContents: number[];
 
-  private validate = (numbers: number[]) => {
-    if (!numberValidator(numbers)) {
-      throw new InvalidNumber(numbers);
+  private validate = (contents: number[]) => {
+    if (!contentsValidator(contents)) {
+      throw new InvalidNumber(contents);
     }
   };
 
@@ -27,13 +27,13 @@ export class ArrayOfRectangles {
       throw NOT_IMPLEMENTED;
     }
 
-    const parsedNumbers = this.parseStringIntoNumbers(numbers);
-    this.validate(parsedNumbers);
-    this.initialNumbers = parsedNumbers;
-    this.rectangles = parsedNumbers.map((number) => new Rectangle(number));
+    const parsedContents = this.parseStringIntoContents(numbers);
+    this.validate(parsedContents);
+    this.initialContents = parsedContents;
+    this.rectangles = parsedContents.map((number) => new Rectangle(number));
   }
 
-  private parseStringIntoNumbers = (numbers: string): number[] => {
+  private parseStringIntoContents = (numbers: string): number[] => {
     try {
       return JSON.parse(numbers);
     } catch (e) {
@@ -66,7 +66,7 @@ export class ArrayOfRectangles {
   public updateURL = () => {
     const url = new URL(location.href);
 
-    url.pathname = createLinkFactory(RouteType.SolutionView)({
+    url.pathname = createLinkFactory(RouteType.Solution)({
       numbers: this.contents,
     });
 

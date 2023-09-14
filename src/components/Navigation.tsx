@@ -14,7 +14,7 @@ export const Navigation = () => {
         </li>
         <li>
           <ApplicationLink
-            to={createLinkFactory(RouteType.SolutionView)({
+            to={createLinkFactory(RouteType.Solution)({
               numbers: MARTIN_EXAMPLE_AND_SPLIT,
             })}
           >

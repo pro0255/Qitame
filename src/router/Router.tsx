@@ -14,7 +14,7 @@ export const Router = () => {
         <Route path={RouteType.Home} element={<WelcomePage />} />
         <Route path={RouteType.Examples} element={<ExamplesPage />} />
         <Route
-          path={RouteType.SolutionView}
+          path={RouteType.Solution}
           element={
             <ErrorBoundary FallbackComponent={ApplicationErrorBoundary}>
               <SolutionPage />

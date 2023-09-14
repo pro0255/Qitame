@@ -18,10 +18,10 @@ const _SolutionViewPage = () => {
   const [model] = useState(new ArrayOfRectangles(numbers));
 
   const restartLink = useCallback(() => {
-    return createLinkFactory(RouteType.SolutionView)({
-      numbers: model.initialNumbers,
+    return createLinkFactory(RouteType.Solution)({
+      numbers: model.initialContents,
     });
-  }, [model.initialNumbers]);
+  }, [model.initialContents]);
 
   useEffect(() => {
     const restart = (event: KeyboardEvent) => {

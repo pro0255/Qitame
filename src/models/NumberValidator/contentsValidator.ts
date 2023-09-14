@@ -1,14 +1,14 @@
 import { HIGH_BORDER, LOW_BORDER } from '../../constants/NUMBER';
 
-export const numberValidator = (numbers: number[]) => {
+export const contentsValidator = (contents: number[]) => {
   let result = true;
 
-  numbers.forEach((number) => {
-    if (number < LOW_BORDER) {
+  contents.forEach((content) => {
+    if (content < LOW_BORDER) {
       result = false;
     }
 
-    if (number > HIGH_BORDER) {
+    if (content > HIGH_BORDER) {
       result = false;
     }
   });

@@ -5,11 +5,11 @@ export enum RouteType {
   Home = '/',
   About = '/about',
   Examples = '/examples',
-  SolutionView = '/solution/:numbers',
+  Solution = '/solution/:numbers',
 }
 
-export const createLinkFactory = (type: RouteType.SolutionView) => {
-  if (type === RouteType.SolutionView) {
+export const createLinkFactory = (type: RouteType.Solution) => {
+  if (type === RouteType.Solution) {
     return ({
       numbers,
     }: Omit<SolutionViewParams, 'numbers'> & {
