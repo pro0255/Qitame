@@ -44,7 +44,7 @@ const _SolutionViewPage = () => {
         <Link
           reloadDocument
           to={restartLink()}
-          className={`w-full h-full text-lg font-normal text-blue-600 hover:underline`}
+          className={`w-full h-full text-lg font-normal text-blue-600 dark:text-sky-400 hover:underline`}
         >
           {`"x"`}
         </Link>{' '}

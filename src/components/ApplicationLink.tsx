@@ -10,7 +10,9 @@ export const ApplicationLink = (props: ComponentProps<typeof Link>) => {
   return (
     <Link
       {...props}
-      className={`p-5 hover:bg-gray-200 focus:bg-gray-100 focus:ring-0 ${isCurrent ? 'bg-gray-100' : ''}`}
+      className={`rounded text-lg font-normal text-black dark:text-white dark:bg-sky-600 dark:hover:bg-sky-800 p-4 hover:bg-gray-200 focus:bg-gray-100  focus:ring-0 ${
+        isCurrent ? 'bg-gray-100 dark:bg-sky-800' : ''
+      }`}
     />
   );
 };

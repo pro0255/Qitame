@@ -9,7 +9,10 @@ export const TryOneOfGreenExample = () => {
       <p>
         <NormalText>
           You can explore the{' '}
-          <Link to={RouteType.Examples} className={`w-full h-full text-lg font-normal text-blue-600 hover:underline`}>
+          <Link
+            to={RouteType.Examples}
+            className={`w-full h-full text-lg font-normal text-blue-600 dark:text-sky-400 hover:underline`}
+          >
             examples
           </Link>{' '}
           to see some existing ones.
@@ -17,7 +20,8 @@ export const TryOneOfGreenExample = () => {
       </p>
       <p className={'mt-5'}>
         <GrayText>
-          The <span className={'text-green-500 animate-pulse'}>green</span> option will function correctly!
+          The <span className={'text-green-500 dark:text-lime-500 animate-pulse'}>green</span> option will function
+          correctly!
         </GrayText>
       </p>
     </>

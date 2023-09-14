@@ -9,7 +9,7 @@ type Props = ExampleProperties & {
 
 export const ExampleView = ({ value, name, isValid }: Props) => {
   return (
-    <div className={'relative shadow-md p-10 flex flex-col'}>
+    <div className={'mt-5 relative shadow-md p-10 flex flex-col dark:bg-neutral-800'}>
       <ValidIndicatorView isValid={isValid} />
 
       <div className={'p-10 flex flex-row items-center'}>

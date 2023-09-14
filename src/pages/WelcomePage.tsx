@@ -16,7 +16,9 @@ export const WelcomePage = () => {
         >
           <img width={'5%'} height={'5%'} src={reactLogo} alt="React logo" />
         </a>
-        <h1 className={'text-4xl font-extrabold leading-none tracking-tight text-gray-900'}>Vite + React</h1>
+        <h1 className={'text-4xl font-extrabold leading-none tracking-tight text-black dark:text-white'}>
+          Vite + React
+        </h1>
         <HiToEmatiq />
       </div>
     </CenterLayout>

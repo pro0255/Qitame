@@ -16,7 +16,7 @@ export const ExamplesView = ({ examples }: Props) => {
         return (
           <li
             className={
-              'transition-colors duration-300 ease-in-out hover:bg-gray-200 hover:animate-moveToMe focus:bg-gray-50'
+              'mt-3 transition-colors duration-300 ease-in-out hover:bg-gray-200 hover:animate-moveToMe focus:bg-gray-50 dark:bg-neutral-800'
             }
             key={example.name}
           >

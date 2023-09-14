@@ -9,7 +9,7 @@ type Props = {
 export const ExternalLink = ({ href, children, className }: Props) => {
   return (
     <a
-      className={`w-full h-full text-lg font-normal text-blue-600 hover:underline ${className}`}
+      className={`w-full h-full text-lg font-normal text-blue-600 dark:text-sky-400 hover:underline ${className}`}
       href={href}
       target="_blank"
     >
