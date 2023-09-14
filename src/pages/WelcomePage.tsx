@@ -8,7 +8,7 @@ export const WelcomePage = () => {
   return (
     <CenterLayout>
       <div className={'w-full h-full flex flex-col justify-center items-center'}>
-        <img width={'20%'} height={'20%'} src={ematiqLogo} alt="Ematiq logo" />
+        <img className={'animate-pulse'} width={'20%'} height={'20%'} src={ematiqLogo} alt="Ematiq logo" />
         <a
           className={'mt-20 w-full h-[20%] flex flex-col justify-center items-center'}
           href="https://react.dev"

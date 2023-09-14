@@ -17,7 +17,7 @@ export const ShowMore = ({ ExpandedContent, MainContent }: Props) => {
       <p>
         <span className={'block'}>{MainContent}</span>
         <span
-          className={'block'}
+          className={`block w-full animate-show`}
           style={{
             display: isExpanded ? 'initial' : 'none',
           }}
@@ -25,7 +25,10 @@ export const ShowMore = ({ ExpandedContent, MainContent }: Props) => {
           {ExpandedContent}
         </span>
       </p>
-      <button className={'text-md font-normal text-blue-600 hover:underline'} onClick={toggle}>
+      <button
+        className={`mt-2 text-md font-normal text-blue-600 hover:underline ${isExpanded ? '' : 'animate-bounce'}`}
+        onClick={toggle}
+      >
         {isExpanded ? 'Show Less' : 'Show More'}
       </button>
     </div>

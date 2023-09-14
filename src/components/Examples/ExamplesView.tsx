@@ -13,7 +13,12 @@ export const ExamplesView = ({ examples }: Props) => {
       {examples.map((example) => {
         // As key can be used a name because I am going to keep it unique
         return (
-          <li className={'hover:bg-gray-200 focus:bg-gray-50'} key={example.name}>
+          <li
+            className={
+              'transition-colors duration-300 ease-in-out hover:bg-gray-200 hover:animate-moveToMe focus:bg-gray-50'
+            }
+            key={example.name}
+          >
             <Link
               to={createLinkFactory(RouteType.SolutionView)({
                 numbers: example.value,
