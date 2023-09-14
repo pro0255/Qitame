@@ -5,7 +5,7 @@ type Props = Pick<ExampleProperties, 'value'>;
 
 export const NumbersView = ({ value }: Props) => {
   return (
-    <ul className={'w-full flex flex-row sm:flex-col sm:justify-center lg:flex-row lg:justify-evenly'}>
+    <ul className={'w-full flex flex-col sm:justify-center lg:flex-row lg:justify-evenly'}>
       {value.map((v, index) => {
         return (
           // Key as index is not good. But here is good enough
