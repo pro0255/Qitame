@@ -4,6 +4,7 @@ import { MARTIN_EXAMPLE_AND_SPLIT } from './MartinExampleAndSplit';
 import { SPLIT_EXAMPLE } from './SplitExample';
 import { INVALID_EXAMPLE_ABOVE_100 } from './InvalidExampleAbove100';
 import { INVALID_EXAMPLE_MINUS_ONE } from './InvalidExample-1';
+import { VOJTA_EXAMPLE } from './VojtaExample';
 
 export const instances: Examples = [
   {
@@ -25,5 +26,9 @@ export const instances: Examples = [
   {
     value: INVALID_EXAMPLE_ABOVE_100,
     name: 'Above 100!',
+  },
+  {
+    value: VOJTA_EXAMPLE,
+    name: "Vojtik's sample",
   },
 ];

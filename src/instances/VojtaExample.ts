@@ -1,1 +1,1 @@
-export const MARTIN_EXAMPLE = [100, 45, 21, 60, 24];
+export const VOJTA_EXAMPLE = [46, 60, 24];

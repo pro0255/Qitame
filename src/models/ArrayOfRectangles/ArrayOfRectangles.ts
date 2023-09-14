@@ -44,11 +44,11 @@ export class ArrayOfRectangles {
   }
 
   public split = (rectangle: Rectangle) => {
-    this.updateRectangles(rectangle);
+    this.splitRectangles(rectangle);
     this.updateURL();
   };
 
-  private updateRectangles = (rectangle: Rectangle) => {
+  private splitRectangles = (rectangle: Rectangle) => {
     // Counting on reference comparison (also kind of safes resources because i work always with same instance)
     const index = this.rectangles.indexOf(rectangle);
 
@@ -72,6 +72,11 @@ export class ArrayOfRectangles {
   };
 
   public merge = (rectangle: Rectangle) => {
+    this.mergeRectangles(rectangle);
+    this.updateURL();
+  };
+
+  private mergeRectangles = (rectangle: Rectangle) => {
     if (rectangle.parent === null) {
       throw NOT_IMPLEMENTED;
     }
