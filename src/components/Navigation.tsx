@@ -10,7 +10,7 @@ export const Navigation = () => {
           <Link to={RouteType.Home}>Home</Link>
         </li>
         <li>
-          <Link to={RouteType.SolutionExamples}>Solution Form</Link>
+          <Link to={RouteType.Examples}>Examples</Link>
         </li>
         <li>
           <Link
@@ -18,7 +18,7 @@ export const Navigation = () => {
               numbers: MARTIN_EXAMPLE_AND_SPLIT,
             })}
           >
-            Solution View
+            Solution
           </Link>
         </li>
         <li>

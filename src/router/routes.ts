@@ -4,8 +4,8 @@ import { NOT_IMPLEMENTED } from '../constants/NOT_IMPLEMENTED';
 export enum RouteType {
   Home = '/',
   About = '/about',
-  SolutionExamples = '/solutionExamples',
-  SolutionView = '/solutionView/:numbers',
+  Examples = '/examples',
+  SolutionView = '/solution/:numbers',
 }
 
 export const createLinkFactory = (type: RouteType.SolutionView) => {
@@ -15,7 +15,7 @@ export const createLinkFactory = (type: RouteType.SolutionView) => {
     }: Omit<SolutionViewParams, 'numbers'> & {
       numbers: number[];
     }) => {
-      return `/solutionView/${JSON.stringify(numbers)}`;
+      return `/solution/${JSON.stringify(numbers)}`;
     };
   } else {
     throw NOT_IMPLEMENTED;

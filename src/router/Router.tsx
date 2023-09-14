@@ -10,7 +10,7 @@ export const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path={RouteType.Home} element={<WelcomePage />} />
-        <Route path={RouteType.SolutionExamples} element={<SolutionFormPage />} />
+        <Route path={RouteType.Examples} element={<SolutionFormPage />} />
         <Route path={RouteType.SolutionView} element={<SolutionViewPage />} />
         <Route path={RouteType.About} element={<AboutPage />} />
       </Routes>
