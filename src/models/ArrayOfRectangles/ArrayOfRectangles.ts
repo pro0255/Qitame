@@ -103,12 +103,14 @@ export class ArrayOfRectangles {
       const childType = rectangle.parent.isChild(rectangle);
       const index = this.rectangles.indexOf(savepoint);
 
+      console.log(index, childType);
+
       if (childType === Child.left) {
         this.rectangles.splice(index, 0, rectangle.parent);
       }
 
       if (childType === Child.right) {
-        this.rectangles.splice(index - 1, 0, rectangle.parent);
+        this.rectangles.splice(index, 0, rectangle.parent);
       }
     }
   };
@@ -123,6 +125,8 @@ export class ArrayOfRectangles {
 
     if (childType === Child.left) {
       const value = this.rectangles?.[index - 1];
+
+      console.log(value);
       return value ?? ArrayPosition.Start;
     }
 
