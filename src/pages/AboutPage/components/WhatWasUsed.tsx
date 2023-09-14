@@ -4,7 +4,11 @@ import { GrayText } from '../../../ds/GrayText';
 export const WhatWasUsed = () => {
   return (
     <ShowMore
-      MainContent={<GrayText>What was used to create this application?</GrayText>}
+      MainContent={
+        <GrayText>
+          The creation of this application utilized a combination of technologies and tools, including:
+        </GrayText>
+      }
       ExpandedContent={<ListOfTechnologies />}
     />
   );
