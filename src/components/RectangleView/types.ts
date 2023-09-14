@@ -1,1 +1,1 @@
-export type RectangleHTMLElement = HTMLDivElement;
+export type RectangleHTMLElement = HTMLButtonElement;

@@ -24,6 +24,9 @@ const _SquareView = ({ arrayOfRectangles }: Props) => {
       >
         {arrayOfRectangles.rectangles.map((rectangle) => (
           <RectangleView
+            onMouseOver={squareModel.showSubTree}
+            onMouseLeave={squareModel.resetSubTree}
+            isHovered={squareModel.subTree.includes(rectangle)}
             onRightClick={squareModel.arrayOfRectangles.merge}
             onLeftClick={squareModel.arrayOfRectangles.split}
             key={rectangle.key}

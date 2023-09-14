@@ -4,11 +4,13 @@ import { ArrayOfRectangles } from '../ArrayOfRectangles/ArrayOfRectangles';
 import { FitAlgorithm, FreeSpace, RectangleType } from '../FitAlgorithm/FitAlgorithm';
 import { RectangleEdges } from '../../types/Position';
 import { objectToPx } from '../../utils/px';
+import { Rectangle } from '../Rectangle/Rectangle';
 
 export class Square {
   public readonly width: number;
   public readonly height: number;
   public readonly arrayOfRectangles: ArrayOfRectangles;
+  public subTree: Rectangle[] = [];
 
   constructor(arrayOfRectangles: ArrayOfRectangles) {
     makeAutoObservable(this);
@@ -24,6 +26,14 @@ export class Square {
       this.fitRectangles();
     });
   }
+
+  public showSubTree = (rectangle: Rectangle) => {
+    this.subTree = rectangle.parent?.getSubTree() ?? [];
+  };
+
+  public resetSubTree = () => {
+    this.subTree = [];
+  };
 
   public fitRectangles = () => {
     const rectangleEdges = FitAlgorithm.fit(this.width, this.arrayOfRectangles.contents);

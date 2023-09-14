@@ -8,9 +8,12 @@ type Props = {
   rectangleModel: Rectangle;
   onLeftClick: (targetRectangle: Rectangle) => void;
   onRightClick: (targetRectangle: Rectangle) => void;
+  isHovered: boolean;
+  onMouseOver: (targetRectangle: Rectangle) => void;
+  onMouseLeave: () => void;
 };
 
-const _RectangleView = ({ rectangleModel, onLeftClick, onRightClick }: Props) => {
+const _RectangleView = ({ rectangleModel, onLeftClick, onRightClick, isHovered, onMouseLeave, onMouseOver }: Props) => {
   const split = useCallback(
     (event: MouseEvent<RectangleHTMLElement>) => {
       if (isLeftClick(event)) {
@@ -25,8 +28,14 @@ const _RectangleView = ({ rectangleModel, onLeftClick, onRightClick }: Props) =>
     [onLeftClick, rectangleModel],
   );
 
+  const setIsHovered = useCallback(() => {
+    onMouseOver(rectangleModel);
+  }, [onMouseOver, rectangleModel]);
+
   return (
-    <div
+    <button
+      onMouseOver={setIsHovered}
+      onMouseLeave={onMouseLeave}
       onClick={split}
       onContextMenu={split}
       style={{
@@ -36,7 +45,7 @@ const _RectangleView = ({ rectangleModel, onLeftClick, onRightClick }: Props) =>
         top: `${rectangleModel.position.y}px`,
         backgroundColor: rectangleModel.color,
       }}
-      className={'absolute'}
+      className={`absolute ${isHovered ? 'border-4 border-blue-500' : ''} focus:border-4 border-blue-500 focus:ring-0`}
     >
       <div
         style={{
@@ -49,7 +58,7 @@ const _RectangleView = ({ rectangleModel, onLeftClick, onRightClick }: Props) =>
       >
         {rectangleModel.content}, {rectangleModel.key}
       </div>
-    </div>
+    </button>
   );
 };
 
