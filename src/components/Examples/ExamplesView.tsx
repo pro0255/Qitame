@@ -1,7 +1,7 @@
 import { Examples } from './types';
 import { ExampleView } from './ExampleView';
 import { createLinkFactory, RouteType } from '../../router/routes';
-import { ApplicationLink } from '../ApplicationLink';
+import { Link } from 'react-router-dom';
 
 type Props = {
   examples: Examples;
@@ -13,14 +13,14 @@ export const ExamplesView = ({ examples }: Props) => {
       {examples.map((example) => {
         // As key can be used a name because I am going to keep it unique
         return (
-          <li key={example.name}>
-            <ApplicationLink
+          <li className={'hover:bg-gray-200 focus:bg-gray-50'} key={example.name}>
+            <Link
               to={createLinkFactory(RouteType.SolutionView)({
                 numbers: example.value,
               })}
             >
               <ExampleView {...example} />
-            </ApplicationLink>
+            </Link>
           </li>
         );
       })}
