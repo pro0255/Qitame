@@ -46,7 +46,7 @@ const _RectangleView = ({ rectangleModel, onLeftClick, onRightClick, isHovered, 
         backgroundColor: rectangleModel.color,
         opacity: isHovered ? 1 : 0.2,
       }}
-      className={`absolute hover:animate-pulse focus:border-4 border-gray-500 focus:ring-0`}
+      className={`absolute hover:animate-pulse focus:animate-pulse  border-gray-500 focus:ring-0`}
     >
       <div
         style={{
