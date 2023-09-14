@@ -2,6 +2,7 @@ import { NOT_IMPLEMENTED } from '../../constants/NOT_IMPLEMENTED';
 import { makeAutoObservable } from 'mobx';
 import { Child, Rectangle } from '../Rectangle/Rectangle';
 import { createLinkFactory, RouteType } from '../../router/routes';
+import { numberValidator } from '../NumberValidator/numberValidator';
 
 enum ArrayPosition {
   Start = -1,
@@ -11,6 +12,10 @@ enum ArrayPosition {
 export class ArrayOfRectangles {
   public rectangles: Rectangle[] = [];
 
+  private validate = (numbers: number[]) => {
+    numberValidator(numbers);
+  };
+
   constructor(numbers: string | undefined) {
     makeAutoObservable(this);
 
@@ -19,6 +24,7 @@ export class ArrayOfRectangles {
     }
 
     const parsedNumbers = this.parseStringIntoNumbers(numbers);
+    this.validate(parsedNumbers);
     this.rectangles = parsedNumbers.map((number) => new Rectangle(number));
   }
 
