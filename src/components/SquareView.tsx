@@ -13,27 +13,24 @@ const _SquareView = ({ arrayOfRectangles }: Props) => {
   const squareModel = useMemo(() => new Square(arrayOfRectangles), [arrayOfRectangles]);
 
   return (
-    <div>
-      {JSON.stringify(squareModel.arrayOfRectangles.contents)}
-      <div
-        style={{
-          width: `${toPx(squareModel.width)}px`,
-          height: `${toPx(squareModel.height)}px`,
-        }}
-        className={`border border-gray-600 shadow-xl relative`}
-      >
-        {arrayOfRectangles.rectangles.map((rectangle) => (
-          <RectangleView
-            onMouseOver={squareModel.showSubTree}
-            onMouseLeave={squareModel.resetSubTree}
-            isHovered={squareModel.subTree.includes(rectangle)}
-            onRightClick={squareModel.arrayOfRectangles.merge}
-            onLeftClick={squareModel.arrayOfRectangles.split}
-            key={rectangle.key}
-            rectangleModel={rectangle}
-          />
-        ))}
-      </div>
+    <div
+      style={{
+        width: `${toPx(squareModel.width)}px`,
+        height: `${toPx(squareModel.height)}px`,
+      }}
+      className={`mt-5 border border-gray-600 shadow-2xl relative`}
+    >
+      {arrayOfRectangles.rectangles.map((rectangle) => (
+        <RectangleView
+          onMouseOver={squareModel.showSubTree}
+          onMouseLeave={squareModel.resetSubTree}
+          isHovered={squareModel.subTree.includes(rectangle)}
+          onRightClick={squareModel.arrayOfRectangles.merge}
+          onLeftClick={squareModel.arrayOfRectangles.split}
+          key={rectangle.key}
+          rectangleModel={rectangle}
+        />
+      ))}
     </div>
   );
 };

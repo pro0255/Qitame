@@ -44,8 +44,9 @@ const _RectangleView = ({ rectangleModel, onLeftClick, onRightClick, isHovered, 
         left: `${rectangleModel.position.x}px`,
         top: `${rectangleModel.position.y}px`,
         backgroundColor: rectangleModel.color,
+        opacity: isHovered ? 1 : 0.2,
       }}
-      className={`absolute ${isHovered ? 'border-4 border-blue-500' : ''} focus:border-4 border-blue-500 focus:ring-0`}
+      className={`absolute hover:animate-pulse focus:border-4 border-gray-500 focus:ring-0`}
     >
       <div
         style={{
@@ -56,7 +57,7 @@ const _RectangleView = ({ rectangleModel, onLeftClick, onRightClick, isHovered, 
           textAlign: 'center',
         }}
       >
-        {rectangleModel.content}, {rectangleModel.key}
+        <span className={'text-xl font-normal text-black-500 opacity-1'}>{rectangleModel.content}</span>
       </div>
     </button>
   );
