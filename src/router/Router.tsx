@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { WelcomePage } from '../pages/WelcomePage';
 import { ExamplesPage } from '../pages/ExamplesPage';
-import { AboutPage } from '../pages/AboutPage';
+import { AboutPage } from '../pages/AboutPage/AboutPage';
 import { RouteType } from './routes';
 import { SolutionPage } from '../pages/SolutionPage';
 
