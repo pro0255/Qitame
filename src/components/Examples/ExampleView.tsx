@@ -9,9 +9,10 @@ type Props = ExampleProperties & {
 
 export const ExampleView = ({ value, name, isValid }: Props) => {
   return (
-    <div className={'shadow-md p-10 flex flex-col'}>
+    <div className={'relative shadow-md p-10 flex flex-col'}>
+      <ValidIndicatorView isValid={isValid} />
+
       <div className={'p-10 flex flex-row items-center'}>
-        <ValidIndicatorView isValid={isValid} />
         <NumbersView value={value} />
       </div>
 
