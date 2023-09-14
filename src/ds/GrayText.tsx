@@ -6,5 +6,5 @@ type Props = {
 };
 
 export const GrayText = ({ children, className }: Props) => {
-  return <span className={`text-lg font-normal text-gray-500 ${className}`}>{children}</span>;
+  return <span className={`text-lg font-normal dark:text-white text-gray-500 ${className}`}>{children}</span>;
 };

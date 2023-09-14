@@ -1,5 +1,5 @@
 import { ExampleProperties } from './types';
-import { NumbersView } from './components/Numbers/NumbersView';
+import { NumbersView } from './components/NumbersView';
 import { NameView } from './components/NameView';
 import { ValidIndicatorView } from './components/ValidIndicatorView';
 
@@ -12,7 +12,7 @@ export const ExampleView = ({ value, name, isValid }: Props) => {
     <div className={'mt-5 relative shadow-md p-10 flex flex-col dark:bg-neutral-800'}>
       <ValidIndicatorView isValid={isValid} />
 
-      <div className={'p-10 flex flex-row items-center'}>
+      <div className={'p-8 flex flex-row items-center'}>
         <NumbersView value={value} />
       </div>
 

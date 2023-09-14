@@ -10,13 +10,13 @@ type Props = {
 
 export const ExamplesView = ({ examples }: Props) => {
   return (
-    <ul>
+    <ul className={'max-w-[80%] flex flex-col justify-center items-center w-full'}>
       {examples.map((example) => {
         // As key can be used a name because I am going to keep it unique
         return (
           <li
             className={
-              'mt-3 transition-colors duration-300 ease-in-out hover:bg-gray-200 hover:animate-moveToMe focus:bg-gray-50 dark:bg-neutral-800'
+              'w-full mt-3 transition-colors duration-300 ease-in-out hover:bg-gray-200 hover:animate-moveToMe focus:bg-gray-50 dark:bg-neutral-800'
             }
             key={example.name}
           >
