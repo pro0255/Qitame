@@ -12,6 +12,7 @@ enum ArrayPosition {
 
 export class ArrayOfRectangles {
   public rectangles: Rectangle[] = [];
+  public readonly initialNumbers: number[];
 
   private validate = (numbers: number[]) => {
     if (!numberValidator(numbers)) {
@@ -28,6 +29,7 @@ export class ArrayOfRectangles {
 
     const parsedNumbers = this.parseStringIntoNumbers(numbers);
     this.validate(parsedNumbers);
+    this.initialNumbers = parsedNumbers;
     this.rectangles = parsedNumbers.map((number) => new Rectangle(number));
   }
 
@@ -86,7 +88,7 @@ export class ArrayOfRectangles {
 
     const savepoint = this.getSavepoint(rectangle);
 
-    // For this can be created util later
+    // For this cSquan be created util later
     this.rectangles = this.rectangles.filter((rectangle) => {
       return !subTreeRectangles.includes(rectangle);
     });
