@@ -8,7 +8,7 @@ type Props = {
 export const CenterLayout = ({ children }: Props) => {
   return (
     <div className="flex flex-col items-center justify-center w-full h-full">
-      <footer className={'w-full'}>
+      <footer className={'sticky top-0  w-full'}>
         <Navigation />
       </footer>
       <main className={'w-full h-full flex flex-col items-center'}>{children}</main>
