@@ -4,8 +4,8 @@ import { MARTIN_EXAMPLE_AND_SPLIT } from '../instances/MartinExampleAndSplit';
 
 export const Navigation = () => {
   return (
-    <nav>
-      <ul className={'w-full flex p-5 flew-row justify-evenly items-center'}>
+    <nav className={'w-full flex p-5 shadow-md'}>
+      <ul className={'w-full flex flew-row justify-evenly items-center'}>
         <li>
           <Link to={RouteType.Home}>Home</Link>
         </li>
