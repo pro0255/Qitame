@@ -21,7 +21,7 @@ describe('ArrayOfRectangles', () => {
 
       arrayOfRectangles.split(rectangle100);
 
-      expect(global.window.location.href).toEqual('http://localhost/solutionView/[33,67,45,21,60,24]');
+      expect(global.window.location.href).toEqual('http://localhost/solution/[33,67,45,21,60,24]');
     });
   });
   describe('merge', () => {
