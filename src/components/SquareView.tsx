@@ -1,7 +1,7 @@
 import { ArrayOfRectangles } from '../models/ArrayOfRectangles/ArrayOfRectangles';
 import { observer } from 'mobx-react';
 import { RectangleView } from './RectangleView/RectangleView';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Square } from '../models/Square/Square';
 import { toPx } from '../utils/px';
 
@@ -11,6 +11,20 @@ type Props = {
 
 const _SquareView = ({ arrayOfRectangles }: Props) => {
   const squareModel = useMemo(() => new Square(arrayOfRectangles), [arrayOfRectangles]);
+  const [isControlUp, setIsControlUp] = useState<boolean>(false);
+
+  useEffect(() => {
+    const down = () => setIsControlUp(true);
+    const up = () => setIsControlUp(false);
+
+    window.addEventListener('keydown', down);
+    window.addEventListener('keyup', up);
+
+    return () => {
+      window.removeEventListener('keypress', down);
+      window.addEventListener('keyup', up);
+    };
+  });
 
   return (
     <div
@@ -22,6 +36,7 @@ const _SquareView = ({ arrayOfRectangles }: Props) => {
     >
       {arrayOfRectangles.rectangles.map((rectangle) => (
         <RectangleView
+          isControlUp={isControlUp}
           onMouseOver={squareModel.showSubTree}
           onMouseLeave={squareModel.resetSubTree}
           isHovered={squareModel.subTree.includes(rectangle)}

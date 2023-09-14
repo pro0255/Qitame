@@ -6,14 +6,25 @@ import { isLeftClick, isRightClick } from '../../utils/click';
 
 type Props = {
   rectangleModel: Rectangle;
+  //
   onLeftClick: (targetRectangle: Rectangle) => void;
   onRightClick: (targetRectangle: Rectangle) => void;
-  isHovered: boolean;
   onMouseOver: (targetRectangle: Rectangle) => void;
   onMouseLeave: () => void;
+  //
+  isHovered: boolean;
+  isControlUp: boolean;
 };
 
-const _RectangleView = ({ rectangleModel, onLeftClick, onRightClick, isHovered, onMouseLeave, onMouseOver }: Props) => {
+const _RectangleView = ({
+  rectangleModel,
+  onLeftClick,
+  onRightClick,
+  isHovered,
+  isControlUp,
+  onMouseLeave,
+  onMouseOver,
+}: Props) => {
   const split = useCallback(
     (event: MouseEvent<RectangleHTMLElement>) => {
       if (isLeftClick(event)) {
@@ -44,7 +55,7 @@ const _RectangleView = ({ rectangleModel, onLeftClick, onRightClick, isHovered, 
         left: `${rectangleModel.position.x}px`,
         top: `${rectangleModel.position.y}px`,
         backgroundColor: rectangleModel.color,
-        opacity: isHovered ? 1 : 0.2,
+        opacity: isHovered || (isControlUp && rectangleModel.parent !== null) ? 1 : 0.2,
       }}
       className={`absolute hover:animate-pulse focus:animate-pulse  border-gray-500 focus:ring-0`}
     >
