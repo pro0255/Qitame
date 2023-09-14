@@ -26,7 +26,7 @@ export const ShowMore = ({ ExpandedContent, MainContent }: Props) => {
         </span>
       </p>
       <button className={'text-md font-normal text-blue-600 hover:underline'} onClick={toggle}>
-        {isExpanded ? 'Show More' : 'Show Less'}
+        {isExpanded ? 'Show Less' : 'Show More'}
       </button>
     </div>
   );
