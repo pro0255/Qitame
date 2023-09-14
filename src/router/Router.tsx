@@ -1,17 +1,17 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { WelcomePage } from '../pages/WelcomePage';
-import { SolutionFormPage } from '../pages/SolutionFormPage';
+import { ExamplesPage } from '../pages/ExamplesPage';
 import { AboutPage } from '../pages/AboutPage';
 import { RouteType } from './routes';
-import { SolutionViewPage } from '../pages/SolutionViewPage';
+import { SolutionPage } from '../pages/SolutionPage';
 
 export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path={RouteType.Home} element={<WelcomePage />} />
-        <Route path={RouteType.Examples} element={<SolutionFormPage />} />
-        <Route path={RouteType.SolutionView} element={<SolutionViewPage />} />
+        <Route path={RouteType.Examples} element={<ExamplesPage />} />
+        <Route path={RouteType.SolutionView} element={<SolutionPage />} />
         <Route path={RouteType.About} element={<AboutPage />} />
       </Routes>
     </BrowserRouter>

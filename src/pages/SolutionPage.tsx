@@ -21,4 +21,4 @@ const _SolutionViewPage = () => {
   );
 };
 
-export const SolutionViewPage = observer(_SolutionViewPage);
+export const SolutionPage = observer(_SolutionViewPage);

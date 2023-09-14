@@ -1,4 +1,4 @@
-import { SolutionViewParams } from '../pages/SolutionViewPage';
+import { SolutionViewParams } from '../pages/SolutionPage';
 import { NOT_IMPLEMENTED } from '../constants/NOT_IMPLEMENTED';
 
 export enum RouteType {
