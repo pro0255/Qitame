@@ -24,4 +24,58 @@ describe('ArrayOfRectangles', () => {
       expect(global.window.location.href).toEqual('http://localhost/solutionView/[33,67,45,21,60,24]');
     });
   });
+  describe('merge', () => {
+    it('after splitting 46, 15, and 10, array contains "[5, 3, 7, 31, 45, 21, 60, 24]"', () => {
+      const arrayOfRectangles = new ArrayOfRectangles('[46,45,21,60,24]');
+
+      const rectangle46 = arrayOfRectangles.rectangles[0];
+      arrayOfRectangles.split(rectangle46);
+      const rectangle15 = arrayOfRectangles.rectangles[0];
+      arrayOfRectangles.split(rectangle15);
+      const rectangle10 = arrayOfRectangles.rectangles[1];
+      arrayOfRectangles.split(rectangle10);
+
+      expect(arrayOfRectangles.contents).toEqual([5, 3, 7, 31, 45, 21, 60, 24]);
+    });
+    it('after splitting 46, 15, and 10, subTree of 15 is "[5, 10, 3, 7]"', () => {
+      const arrayOfRectangles = new ArrayOfRectangles('[46,45,21,60,24]');
+
+      const rectangle46 = arrayOfRectangles.rectangles[0];
+      arrayOfRectangles.split(rectangle46);
+      const rectangle15 = arrayOfRectangles.rectangles[0];
+      arrayOfRectangles.split(rectangle15);
+      const rectangle10 = arrayOfRectangles.rectangles[1];
+      arrayOfRectangles.split(rectangle10);
+
+      const subTree = rectangle15.getSubTree();
+      const subTreeContents = subTree.map((rectangle) => rectangle.content);
+
+      expect(subTreeContents).toEqual([5, 10, 3, 7]);
+    });
+    it('starts with "[46]", split into "[15, 31]" | "[5, 10, 31]" | "[5, 3, 7, 31]", after click on 5 merges back into [15, 31]', () => {
+      const arrayOfRectangles = new ArrayOfRectangles('[46]');
+
+      /// Split
+      const rectangle46 = arrayOfRectangles.rectangles[0];
+      arrayOfRectangles.split(rectangle46);
+      // 15, 31
+      expect(arrayOfRectangles.contents).toEqual([15, 31]);
+
+      const rectangle15 = arrayOfRectangles.rectangles[0];
+      arrayOfRectangles.split(rectangle15);
+      // 5, 10, 31
+      expect(arrayOfRectangles.contents).toEqual([5, 10, 31]);
+
+      const rectangle10 = arrayOfRectangles.rectangles[1];
+      arrayOfRectangles.split(rectangle10);
+      // 5, 3, 7, 31
+      expect(arrayOfRectangles.contents).toEqual([5, 3, 7, 31]);
+
+      /// Merge
+      const rectangle5 = arrayOfRectangles.rectangles[0];
+      arrayOfRectangles.merge(rectangle5);
+
+      expect(arrayOfRectangles.contents).toEqual([15, 31]);
+    });
+  });
 });

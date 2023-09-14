@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { createLinkFactory, RouteType } from '../router/routes';
-import { MARTIN_EXAMPLE } from '../instances/MartinExample';
+import { MARTIN_EXAMPLE_AND_SPLIT } from '../instances/MartinExampleAndSplit';
 
 export const Navigation = () => {
   return (
@@ -15,7 +15,7 @@ export const Navigation = () => {
         <li>
           <Link
             to={createLinkFactory(RouteType.SolutionView)({
-              numbers: MARTIN_EXAMPLE,
+              numbers: MARTIN_EXAMPLE_AND_SPLIT,
             })}
           >
             Solution View

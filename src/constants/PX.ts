@@ -1,1 +1,1 @@
-export const METRIC_TO_PX = 30;
+export const METRIC_TO_PX = 50;

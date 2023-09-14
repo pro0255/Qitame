@@ -3,14 +3,14 @@ import { Rectangle } from '../../models/Rectangle/Rectangle';
 import { MouseEvent, useCallback } from 'react';
 import { RectangleHTMLElement } from './types';
 import { isLeftClick, isRightClick } from '../../utils/click';
-import { NOT_IMPLEMENTED } from '../../constants/NOT_IMPLEMENTED';
 
 type Props = {
   rectangleModel: Rectangle;
   onLeftClick: (targetRectangle: Rectangle) => void;
+  onRightClick: (targetRectangle: Rectangle) => void;
 };
 
-const _RectangleView = ({ rectangleModel, onLeftClick }: Props) => {
+const _RectangleView = ({ rectangleModel, onLeftClick, onRightClick }: Props) => {
   const split = useCallback(
     (event: MouseEvent<RectangleHTMLElement>) => {
       if (isLeftClick(event)) {
@@ -19,7 +19,7 @@ const _RectangleView = ({ rectangleModel, onLeftClick }: Props) => {
 
       if (isRightClick(event)) {
         event.preventDefault();
-        console.log(NOT_IMPLEMENTED);
+        onRightClick(rectangleModel);
       }
     },
     [onLeftClick, rectangleModel],
@@ -47,7 +47,7 @@ const _RectangleView = ({ rectangleModel, onLeftClick }: Props) => {
           textAlign: 'center',
         }}
       >
-        {rectangleModel.content}
+        {rectangleModel.content}, {rectangleModel.key}
       </div>
     </div>
   );
