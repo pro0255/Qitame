@@ -88,5 +88,16 @@ describe('ArrayOfRectangles', () => {
       arrayOfRectangles.merge(rectangle40);
       expect(arrayOfRectangles.contents).toEqual([46, 60, 24]);
     });
+    it('starts with "[46, 60, 24]", split into "[46, 20, 40, 24]", click 20 should merge into "[46, 60, 24]"', () => {
+      const arrayOfRectangles = new ArrayOfRectangles('[46, 60, 24]');
+
+      const rectangle60 = arrayOfRectangles.rectangles[1];
+      arrayOfRectangles.split(rectangle60);
+      expect(arrayOfRectangles.contents).toEqual([46, 20, 40, 24]);
+
+      const rectangle20 = arrayOfRectangles.rectangles[1];
+      arrayOfRectangles.merge(rectangle20);
+      expect(arrayOfRectangles.contents).toEqual([46, 60, 24]);
+    });
   });
 });
