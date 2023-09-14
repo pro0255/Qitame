@@ -3,6 +3,7 @@ import { Rectangle } from '../../models/Rectangle/Rectangle';
 import { MouseEvent, useCallback } from 'react';
 import { RectangleHTMLElement } from './types';
 import { isLeftClick, isRightClick } from '../../utils/click';
+import { isDarkTheme } from '../../utils/isDarkTheme';
 
 type Props = {
   rectangleModel: Rectangle;
@@ -55,9 +56,9 @@ const _RectangleView = ({
         left: `${rectangleModel.position.x}px`,
         top: `${rectangleModel.position.y}px`,
         backgroundColor: rectangleModel.color,
-        opacity: isHovered || (isControlUp && rectangleModel.parent !== null) ? 1 : 0.2,
+        opacity: isHovered || (isControlUp && rectangleModel.parent !== null) ? 1 : isDarkTheme() ? 0.5 : 0.2,
       }}
-      className={`absolute hover:animate-pulse focus:animate-pulse  border-gray-500 focus:ring-0`}
+      className={`absolute hover:animate-pulse focus:animate-pulse border-gray-500 focus:ring-0`}
     >
       <div
         style={{
