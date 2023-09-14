@@ -5,7 +5,9 @@ import { instances } from '../instances/instances';
 export const ExamplesPage = () => {
   return (
     <CenterLayout>
-      <ExamplesView examples={instances} />
+      <div className={'min-w-[60%] p-10'}>
+        <ExamplesView examples={instances} />
+      </div>
     </CenterLayout>
   );
 };

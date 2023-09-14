@@ -17,6 +17,6 @@ export const instances: Examples = [
   {
     value: MARTIN_EXAMPLE_AND_SPLIT,
     isValid: true,
-    name: "Martin's $ split example",
+    name: "Martin's & Split example",
   },
 ];
