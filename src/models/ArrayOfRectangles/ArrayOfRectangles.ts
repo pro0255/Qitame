@@ -3,6 +3,7 @@ import { makeAutoObservable } from 'mobx';
 import { Child, Rectangle } from '../Rectangle/Rectangle';
 import { createLinkFactory, RouteType } from '../../router/routes';
 import { numberValidator } from '../NumberValidator/numberValidator';
+import { InvalidNumber } from '../NumberValidator/InvalidNumber';
 
 enum ArrayPosition {
   Start = -1,
@@ -13,7 +14,9 @@ export class ArrayOfRectangles {
   public rectangles: Rectangle[] = [];
 
   private validate = (numbers: number[]) => {
-    numberValidator(numbers);
+    if (!numberValidator(numbers)) {
+      throw new InvalidNumber(numbers);
+    }
   };
 
   constructor(numbers: string | undefined) {

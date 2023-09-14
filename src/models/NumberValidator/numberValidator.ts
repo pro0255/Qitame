@@ -1,14 +1,17 @@
 import { HIGH_BORDER, LOW_BORDER } from '../../constants/NUMBER';
-import { InvalidNumber } from './InvalidNumber';
 
 export const numberValidator = (numbers: number[]) => {
+  let result = true;
+
   numbers.forEach((number) => {
     if (number < LOW_BORDER) {
-      throw new InvalidNumber(numbers);
+      result = false;
     }
 
     if (number > HIGH_BORDER) {
-      throw new InvalidNumber(numbers);
+      result = false;
     }
   });
+
+  return result;
 };

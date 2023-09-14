@@ -2,6 +2,7 @@ import { Examples } from './types';
 import { ExampleView } from './ExampleView';
 import { createLinkFactory, RouteType } from '../../router/routes';
 import { Link } from 'react-router-dom';
+import { numberValidator } from '../../models/NumberValidator/numberValidator';
 
 type Props = {
   examples: Examples;
@@ -24,7 +25,7 @@ export const ExamplesView = ({ examples }: Props) => {
                 numbers: example.value,
               })}
             >
-              <ExampleView {...example} />
+              <ExampleView {...example} isValid={numberValidator(example.value)} />
             </Link>
           </li>
         );

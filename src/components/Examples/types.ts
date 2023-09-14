@@ -1,6 +1,5 @@
 export type ExampleProperties = {
   value: number[];
-  isValid: boolean;
   name: string;
 };
 

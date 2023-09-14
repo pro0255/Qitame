@@ -3,7 +3,9 @@ import { NumbersView } from './components/Numbers/NumbersView';
 import { NameView } from './components/NameView';
 import { ValidIndicatorView } from './components/ValidIndicatorView';
 
-type Props = ExampleProperties;
+type Props = ExampleProperties & {
+  isValid: boolean;
+};
 
 export const ExampleView = ({ value, name, isValid }: Props) => {
   return (
